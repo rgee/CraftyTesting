@@ -3,8 +3,14 @@ $(document).ready(function() {
 		var mgr = new Mgr.SceneManager();
 		mgr.changeScene('main');
 
-		window.mgr = mgr;
+		$('.main').click(function() {
+			mgr.changeScene('main');
+		});
+
+		$('.battle').click(function() {
+			mgr.changeScene('battle');
+		});
 	});
-	Crafty.init(700, 400);
+	Crafty.init(1280, 720);
 	Crafty.canvas.init();
 });
