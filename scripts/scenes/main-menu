@@ -1,0 +1,7 @@
+define(function() {
+	Crafty.scene("main", function() {
+		
+	}, function() {
+
+	});
+})
