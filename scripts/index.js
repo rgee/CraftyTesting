@@ -1,14 +1,10 @@
 $(document).ready(function() {
-	require(['./state'], function(State) {
-		console.log(new State.Stack());
+	require(['./scene-manager', 'scenes/main-menu', 'scenes/battle'], function(Mgr) {
+		var mgr = new Mgr.SceneManager();
+		mgr.changeScene('main');
+
+		window.mgr = mgr;
 	});
 	Crafty.init(700, 400);
 	Crafty.canvas.init();
-
-	Crafty.scene("main", function() {
-
-
-	});
-
-	Crafty.scene("main");
 });
