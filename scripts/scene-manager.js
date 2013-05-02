@@ -19,7 +19,5 @@ define(['./state'], function(State) {
 		}
 	};
 
-	return {
-		SceneManager: SceneMgr
-	}
+	return new SceneMgr();
 })
