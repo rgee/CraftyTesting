@@ -8,12 +8,11 @@ define(['./health-bar'], function() {
       bar.attr({
         x: this._x + 50,
         y: this._y,
-        w: 40,
-        h: 40,
         z: 1
       });
 
       bar.attachToUnit(this);
+      console.log(bar.pos());
     },
     changeHealth: function(amt) {
       this.health += amt;
