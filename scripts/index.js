@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	require(['./scene-manager',  'scenes/main-menu', 'scenes/battle'], function(SceneMgr) {
-		SceneMgr.changeScene('main');
+		SceneMgr.changeScene('battle');
 
-		$('.main').click(function() {
-			SceneMgr.changeScene('main');
+		$('.add_ten').click(function() {
+			unit.changeHealth(10);
 		});
 
-		$('.battle').click(function() {
-			SceneMgr.changeScene('battle');
+		$('.subtract_ten').click(function() {
+			unit.changeHealth(-30);
 		});
 	});
 	Crafty.init(1280, 720);
