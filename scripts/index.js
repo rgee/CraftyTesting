@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	require(['./scene-manager',  'scenes/main-menu', 'scenes/battle'], function(SceneMgr) {
+	require(['./scene-manager', 'scenes/battle'], function(SceneMgr) {
 		SceneMgr.changeScene('battle');
 
 		$('.add_ten').click(function() {

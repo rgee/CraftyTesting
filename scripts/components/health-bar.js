@@ -2,8 +2,6 @@ define(function() {
   Crafty.c('HealthBar', {
     init: function() {
       this.addComponent('2D, Canvas, Color');
-
-
     },
 
     attachToUnit: function(unit) {
