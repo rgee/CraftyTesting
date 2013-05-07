@@ -2,24 +2,28 @@ define(function() {
   Crafty.c('HealthBar', {
     init: function() {
       this.addComponent('2D, Canvas, Color');
-      this.attrs({
-        w: 100,
-        h: 20
-      });
+
+
+    },
+
+    attachToUnit: function(unit) {
+      this._unit = unit;
+      unit.attach(this);
       this._adjustColorForHealth();
 
-      this.bind('healthChange', function(unit) {
+      var self = this;
+      unit.bind('healthChange', function(unit) {
         console.log('Unit Health is: ' + unit.health);
-        this._adjustColorForHealth();
+        self._adjustColorForHealth();
       });
 
-      this.bind('death', function(unit) {
+      unit.bind('death', function(unit) {
         console.log('Unit: ' + unit + ' has died.');
       });
     },
 
     _adjustColorForHealth: function() {
-      var healthPct = Math.max(0, this.health / this.maxHealth);
+      var healthPct = Math.max(0, this._unit.health / this._unit.maxHealth);
       if (healthPct >= 0.5) {
         this.color('green');
       } else if (healthPct >= 0.2) {

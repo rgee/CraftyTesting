@@ -4,16 +4,23 @@ define(['./health-bar'], function() {
       this.addComponent('2D');
       this.health = this.maxHealth = 100;
 
-      var bar = Crafty.e('health-bar');
+      var bar = Crafty.e('HealthBar');
       bar.attr({
-        x: this._x,
-        y: this._y - 20
+        x: this._x + 50,
+        y: this._y,
+        w: 40,
+        h: 40,
+        z: 1
       });
 
-      this.attach(bar);
+      bar.attachToUnit(this);
+      console.log(bar.pos());
     },
     changeHealth: function(amt) {
       this.health += amt;
+      this.health = Math.max(0, this.health);
+      this.health = Math.min(this.maxHealth, this.health);
+
       if (this.health <= 0) {
         this.trigger('death', this);
       } else {
