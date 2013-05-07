@@ -14,18 +14,16 @@ define(['./health-bar'], function() {
       });
 
       bar.attachToUnit(this);
-      console.log(bar.pos());
     },
     changeHealth: function(amt) {
       this.health += amt;
       this.health = Math.max(0, this.health);
       this.health = Math.min(this.maxHealth, this.health);
 
+      this.trigger('healthChange', this);
       if (this.health <= 0) {
         this.trigger('death', this);
-      } else {
-        this.trigger('healthChange', this);
-      }
+      } 
     } 
   });
 });
